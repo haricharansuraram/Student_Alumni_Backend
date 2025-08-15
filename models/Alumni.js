@@ -3,12 +3,16 @@ const mongoose = require('mongoose');
 const alumniSchema = mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true, unique: true },
   name: { type: String, required: true },
-  email: { type: String, required: true },
-  batch: { type: String, default: '' },
-  jobTitle: { type: String, default: '' },
-  location: { type: String, default: '' },
+  email: { type: String, required: true, unique: true },
+  batch: { type: String, default: '2018' },
+  jobTitle: { type: String, default: 'Developer' },
+  location: { type: String, default: 'Hyderabad,India.' },
   phone: { type: String, default: '' },
-  industry: { type: String, default: '' },
+  education: { type: String, default: 'Computer Science' },         // New
+  degree: { type: String, default: 'B Tech' },            // New
+  experience: { type: String, default: '5 years' },        // New     // New
+  passedOut: { type: String, default: '2022' },         // New
+  skills: { type: [String], default: ['react','java','sql'] },          // New             // New (for profile image URL)
 }, { timestamps: true });
 
 module.exports = mongoose.model('Alumni', alumniSchema);

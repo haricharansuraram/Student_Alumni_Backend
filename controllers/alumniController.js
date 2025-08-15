@@ -11,4 +11,13 @@ const getAlumni = asyncHandler(async (req, res) => {
   res.json(alumni);
 });
 
-module.exports = { getAlumni };
+const getAlumniById = asyncHandler(async (req, res) => {
+  const alumni = await Alumni.findById(req.params.id);
+  if (!alumni) {
+    res.status(404);
+    throw new Error('Alumni not found');
+  }
+  res.json(alumni);
+});
+
+module.exports = { getAlumni, getAlumniById };
