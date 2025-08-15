@@ -4,9 +4,11 @@ const alumniSchema = mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true, unique: true },
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  batch: { type: String, default: '2018' },
+  company: { type: String, default: 'Amazon' },
   jobTitle: { type: String, default: 'Developer' },
   location: { type: String, default: 'Hyderabad,India.' },
+  Email:{ type: String, default: 'haricharan@gmail.com'}  , // New
+  qualification: { type: String, default: 'B Tech' },
   phone: { type: String, default: '' },
   education: { type: String, default: 'Computer Science' },         // New
   degree: { type: String, default: 'B Tech' },            // New
